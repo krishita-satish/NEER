@@ -1,1 +1,536 @@
+# NEER – Mechanical Design
 
+## 1. Introduction
+
+The mechanical design of NEER focuses on developing a lightweight floating platform capable of supporting the propulsion system, electronic components and waste collection mechanism.
+
+The structure is designed to operate on the water surface while maintaining adequate buoyancy, stability and mechanical strength.
+
+The mechanical assembly consists of the floating body, supporting frame, propulsion arrangement, rotating collection mechanism and waste storage compartment.
+
+## 2. Mechanical Subsystems
+
+### 2.1 Floating Body
+
+The floating body supports the entire robotic assembly.
+
+Materials identified for the construction include foam board, PVC pipes, PVC connectors and buoyant plastic floats.
+
+The floating structure must:
+- Support the total weight of the robot.
+- Maintain sufficient freeboard above the water.
+- Distribute weight evenly.
+- Provide mounting locations for motors and electronics.
+- Remain stable during movement and waste collection.
+
+### 2.2 Structural Frame
+
+The frame provides mechanical support and connects the different subsystems.
+
+PVC pipes and connectors can be used to construct the supporting framework, while foam board provides a lightweight mounting surface.
+
+The frame should provide:
+- Structural rigidity.
+- Secure motor mounting.
+- Support for the collection assembly.
+- Protection and mounting for the electronic enclosure.
+- Accessibility for maintenance.
+
+### 2.3 Propulsion Arrangement
+
+The propulsion subsystem provides movement across the water surface.
+
+The design uses geared DC motors controlled through the ESP32 motor control circuit.
+
+The intended arrangement uses independent left and right propulsion channels, allowing differential steering.
+
+The propulsion system supports:
+- Forward movement.
+- Reverse movement.
+- Left turning.
+- Right turning.
+- Stopping.
+
+The exact motor position, propeller or wheel configuration and transmission arrangement should be illustrated using photographs and a labelled mechanical drawing of the final prototype.
+
+### 2.4 Waste Collection Assembly
+
+The waste collection assembly uses a motor-driven mesh-based rotating mechanism.
+
+The mesh provides a surface that can interact with floating debris and assist in retrieving it from the water.
+
+The assembly consists of:
+- Collection motor.
+- Rotating rollers.
+- Supporting shafts.
+- Mesh fabric.
+- Mounting frame.
+- Mechanical connections.
+
+The final arrangement should ensure that the mesh moves smoothly and does not interfere with the floating structure or propulsion system.
+
+### 2.5 Waste Collection Tray
+
+A dedicated tray is provided to store the collected material.
+
+The tray should be positioned to receive debris from the collection assembly while maintaining the overall balance of the robot.
+
+The storage compartment should be removable or accessible for unloading and cleaning.
+
+### 2.6 Electronics Mounting
+
+The ESP32, motor driver, relay and associated wiring should be housed or mounted in a protected enclosure.
+
+The enclosure should:
+- Reduce exposure to water splashes.
+- Prevent loose wires from contacting moving components.
+- Allow access for troubleshooting.
+- Provide sufficient ventilation where required by the installed components.
+
+## 3. Material Selection
+
+| Material | Application | Selection consideration |
+|---|---|---|
+| Foam board | Body and mounting surface | Low weight and ease of fabrication |
+| PVC pipes | Supporting structure | Lightweight and corrosion-resistant |
+| PVC connectors | Frame assembly | Ease of joining |
+| Plastic floats | Buoyancy | Water displacement |
+| Mesh fabric | Collection surface | Water passage and debris retention |
+| Plastic tray | Waste storage | Easy removal and cleaning |
+| Metal/plastic shafts | Roller support | Rotational strength |
+| Fasteners | Assembly | Secure connections |
+
+## 4. Design Considerations
+
+### Buoyancy
+
+The structure must displace sufficient water to support the complete robot and its payload.
+
+### Stability
+
+The weight distribution should minimise excessive tilting during operation.
+
+### Mechanical Strength
+
+The frame must support the motors, collection assembly and collected waste without significant deformation.
+
+### Water Resistance
+
+Materials exposed to water should resist degradation, and electrical components must be protected from splashes and immersion.
+
+### Accessibility
+
+The collection tray, battery and electronics should be accessible for servicing.
+
+### Maintainability
+
+The conveyor mesh and rollers should be removable or adjustable for cleaning and replacement.
+
+## 5. Mechanical Design Workflow
+
+1. Identify the weight and mounting requirements of all components.
+2. Develop the floating platform layout.
+3. Assemble the supporting structure.
+4. Position and secure the propulsion motors.
+5. Fabricate the roller and mesh collection assembly.
+6. Attach the collection tray.
+7. Mount the electronic enclosure.
+8. Check weight distribution and stability.
+9. Conduct controlled flotation testing.
+10. Refine the structure based on test observations.
+
+## 6. Mechanical Design Validation
+
+The completed structure should be evaluated for:
+
+- Buoyancy under unloaded conditions.
+- Stability under operating load.
+- Structural rigidity.
+- Motor mounting strength.
+- Conveyor alignment.
+- Smooth roller rotation.
+- Waste transfer into the collection tray.
+- Accessibility for cleaning and maintenance.
+
+## 7. Design Limitations
+
+The current mechanical design is a prototype and may require further optimisation.
+
+Potential limitations include:
+- Limited payload capacity.
+- Water resistance on the collection mechanism.
+- Debris getting entangled in the mesh.
+- Uneven load distribution.
+- Mechanical wear in rotating components.
+- Water exposure around motor and shaft mounting points.
+
+## 8. Future Mechanical Improvements
+
+- Improved floating hull design.
+- Better load distribution.
+- Corrosion-resistant mounting hardware.
+- Adjustable conveyor tension.
+- Improved mesh design.
+- Larger or removable waste storage compartment.
+- Better protection for moving mechanical components.
+- Modular mechanical construction for easier maintenance.
+
+## 9. Conclusion
+
+The mechanical design of NEER integrates a buoyant supporting structure, propulsion assembly and rotating mesh-based waste collection mechanism into a compact floating platform.
+
+The design aims to balance low weight, structural stability, mechanical functionality and affordability. Further testing and refinement are necessary to establish its operating capacity and collection efficiency.
+
+
+
+# NEER – Buoyancy and Stability Analysis
+
+## 1. Objective
+
+The objective of the buoyancy analysis is to determine whether the NEER floating platform can support its own weight and the additional load of collected waste while maintaining sufficient stability.
+
+## 2. Principle of Buoyancy
+
+A floating object displaces water. According to Archimedes' principle, the buoyant force acting on an immersed object is equal to the weight of the water displaced.
+
+\[
+F_b = \rho g V
+\]
+
+Where:
+
+- \(F_b\) = Buoyant force (N)
+- \(\rho\) = Density of water (kg/m³)
+- \(g\) = Acceleration due to gravity (m/s²)
+- \(V\) = Volume of displaced water (m³)
+
+For freshwater, a density of approximately 1000 kg/m³ can be used for preliminary calculations.
+
+## 3. Floating Condition
+
+For a floating robot in static equilibrium:
+
+\[
+F_b = W
+\]
+
+The total weight is:
+
+\[
+W = mg
+\]
+
+Where \(m\) is the total mass of the robot, including its payload.
+
+Therefore:
+
+\[
+V = \frac{m}{\rho}
+\]
+
+This gives the minimum displaced water volume required for static flotation.
+
+## 4. Total Mass Calculation
+
+The total robot mass should include:
+
+- Floating structure.
+- Frame.
+- Motors.
+- Battery.
+- Electronic components.
+- Collection mechanism.
+- Collection tray.
+- Collected waste.
+
+\[
+m_{total} = \sum_{i=1}^{n}m_i
+\]
+
+The total mass should be measured using a weighing scale.
+
+## 5. Buoyancy Margin
+
+The platform should provide additional displacement capacity beyond the minimum required for flotation.
+
+\[
+V_{available} = V_{maximum} - V_{required}
+\]
+
+The usable payload must be determined experimentally and should account for stability and safe freeboard, not just theoretical displacement.
+
+## 6. Stability Considerations
+
+The robot's centre of gravity should be positioned appropriately relative to its buoyancy distribution.
+
+The following factors affect stability:
+
+- Battery placement.
+- Motor placement.
+- Distribution of floating materials.
+- Position of the collection tray.
+- Accumulation of waste.
+- Movement of the collection mechanism.
+
+Heavy components should generally be positioned low and distributed symmetrically where possible.
+
+## 7. Experimental Validation
+
+The following observations should be recorded during testing:
+
+| Parameter | Measured value |
+|---|---|
+| Robot mass | To be measured |
+| Robot length | To be measured |
+| Robot width | To be measured |
+| Float dimensions | To be measured |
+| Number of floats | To be recorded |
+| Maximum tested payload | To be tested |
+| Freeboard without payload | To be measured |
+| Freeboard with payload | To be measured |
+| Observed tilt | To be recorded |
+
+## 8. Conclusion
+
+The buoyancy and stability of NEER must be established through theoretical calculations and controlled flotation experiments.
+
+The final design should maintain adequate displacement capacity and stable operation under the intended payload.
+
+
+
+# NEER – Propulsion System
+
+## 1. Overview
+
+The propulsion subsystem enables NEER to move across the water surface. It uses geared DC motors controlled by the ESP32 through a suitable motor driver circuit.
+
+## 2. Operating Principle
+
+The robot uses independently controlled left and right motor channels.
+
+Directional movement is achieved by controlling the direction of rotation of the motors.
+
+| Movement | Left motor | Right motor |
+|---|---|---|
+| Forward | Forward | Forward |
+| Reverse | Reverse | Reverse |
+| Left turn | Reverse or slower | Forward or faster |
+| Right turn | Forward or faster | Reverse or slower |
+| Stop | Stopped | Stopped |
+
+The actual movement logic depends on the physical propulsion arrangement and motor wiring.
+
+## 3. Electronic Control
+
+The ESP32 provides digital control signals to the motor driver.
+
+Current firmware pin assignments:
+
+- GPIO 26: Left motor input A.
+- GPIO 27: Left motor input B.
+- GPIO 14: Right motor input A.
+- GPIO 12: Right motor input B.
+
+The motor driver handles the electrical power required by the motors.
+
+## 4. Mechanical Integration
+
+The motors must be mounted securely to the supporting frame.
+
+The propulsion arrangement should:
+- Provide sufficient thrust.
+- Avoid interference with the collection mechanism.
+- Maintain balanced movement.
+- Prevent water from reaching electrical terminals.
+- Permit inspection and maintenance.
+
+## 5. Performance Evaluation
+
+The propulsion system should be evaluated by recording:
+
+- Directional response.
+- Straight-line movement.
+- Turning performance.
+- Motor temperature.
+- Operating current.
+- Movement speed.
+- Response to repeated commands.
+
+## 6. Future Improvements
+
+- PWM-based speed regulation.
+- Improved differential steering.
+- Feedback-based motor control.
+- Obstacle detection.
+- More efficient propulsion hardware.
+
+## 7. Conclusion
+
+The propulsion system provides the movement capability required for remote operation of NEER. Its performance depends on the selected motor specifications, mechanical mounting and the electrical control circuit.
+
+# NEER – Waste Collection Mechanism
+
+## 1. Overview
+
+The waste collection mechanism is the primary functional subsystem of NEER. It is designed to retrieve floating solid debris from the water surface using a rotating mesh-based assembly.
+
+## 2. Main Components
+
+- Collection motor.
+- Mesh fabric.
+- Rotating rollers.
+- Shafts.
+- Bearings or shaft supports.
+- Mounting frame.
+- Waste collection tray.
+
+## 3. Working Principle
+
+The collection motor drives the rotating assembly.
+
+As the mesh moves, it interacts with floating waste and assists in lifting or carrying the debris towards the collection compartment.
+
+The intended collection sequence is:
+
+1. Position the robot near floating debris.
+2. Activate the collection mechanism.
+3. Rotate the mesh assembly.
+4. Allow suitable floating waste to be caught by the mesh.
+5. Transfer the debris towards the collection tray.
+6. Retain the debris in the tray.
+
+The exact direction of rotation, pickup geometry and transfer method must be described according to the final physical assembly.
+
+## 4. Mechanical Design Requirements
+
+The collection assembly should:
+
+- Rotate smoothly.
+- Maintain suitable mesh tension.
+- Resist water-induced drag.
+- Prevent excessive debris entanglement.
+- Transfer waste effectively into the tray.
+- Avoid obstructing propulsion.
+- Be accessible for cleaning.
+
+## 5. Collection Performance
+
+Collection efficiency can be calculated using:
+
+\[
+\eta = \frac{M_c}{M_i}\times100
+\]
+
+Where:
+
+- \(\eta\) = Collection efficiency (%)
+- \(M_c\) = Mass of waste successfully collected
+- \(M_i\) = Initial mass of waste introduced into the test area
+
+This calculation is appropriate when the test waste mass is known and all collected waste is weighed.
+
+## 6. Experimental Testing
+
+Test the mechanism using different categories of safe, representative floating debris.
+
+Record:
+- Initial waste mass.
+- Collected waste mass.
+- Uncollected waste mass.
+- Collection time.
+- Type and size of debris.
+- Instances of mesh obstruction.
+- Motor performance.
+
+## 7. Limitations
+
+- Small debris may pass through the mesh.
+- Large objects may obstruct the rotating mechanism.
+- Water resistance may increase motor load.
+- Waste may become entangled.
+- Collection performance may vary with debris shape and density.
+
+## 8. Future Improvements
+
+- Adjustable mesh tension.
+- Improved roller arrangement.
+- Removable collection mesh.
+- Better debris transfer geometry.
+- Overload protection.
+- Improved waste storage capacity.
+
+## 9. Conclusion
+
+The rotating mesh collection mechanism provides the principal waste retrieval function of NEER. Its efficiency and reliability must be established through controlled experiments using representative floating debris.
+
+# NEER – Fabrication and Assembly Process
+
+## 1. Introduction
+
+The fabrication process involves constructing the floating structure, assembling the mechanical collection mechanism and integrating the propulsion and electronic systems.
+
+## 2. Fabrication Stages
+
+### Stage 1: Material Preparation
+
+The required materials are identified and prepared, including foam board, PVC pipes, connectors, floats, mesh fabric, rollers and mounting hardware.
+
+### Stage 2: Floating Body Construction
+
+The floating platform is assembled using the selected lightweight structural materials and buoyant elements.
+
+The dimensions and arrangement should be based on the actual prototype.
+
+### Stage 3: Frame Assembly
+
+PVC pipes and connectors are assembled to form the supporting framework.
+
+The frame provides mounting support for the motors, electronics enclosure and collection mechanism.
+
+### Stage 4: Propulsion Installation
+
+The propulsion motors are mounted securely in their intended positions.
+
+The motor mounting arrangement should maintain alignment and avoid interference with the collection assembly.
+
+### Stage 5: Conveyor Fabrication
+
+The rollers and shafts are assembled and aligned.
+
+The mesh fabric is attached to the rotating assembly and adjusted to achieve suitable tension and movement.
+
+### Stage 6: Waste Tray Installation
+
+The collection tray is mounted in the position where the retrieved debris can be transferred and stored.
+
+### Stage 7: Electronic Integration
+
+The ESP32, motor driver, relay and power supply are installed in their designated positions.
+
+The wiring is secured and protected against water exposure.
+
+### Stage 8: Final Assembly
+
+All mechanical and electronic components are integrated.
+
+The structure is inspected for loose connections, unstable mounting and interference between moving components.
+
+### Stage 9: Initial Testing
+
+The completed prototype is tested in a controlled environment.
+
+Initial testing should include flotation, stability, propulsion and conveyor operation.
+
+## 3. Fabrication Considerations
+
+- Minimise unnecessary structural weight.
+- Maintain adequate buoyancy.
+- Keep the centre of gravity appropriately positioned.
+- Ensure smooth roller rotation.
+- Secure all electrical connections.
+- Provide access to the battery and collection tray.
+- Avoid exposing electronic components to water.
+
+## 4. Conclusion
+
+The fabrication process integrates the structural, propulsion, collection and electronic subsystems into the complete NEER prototype. Each assembly stage should be documented using photographs for inclusion in the final project report.
