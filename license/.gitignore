@@ -1,0 +1,22 @@
+# Secrets and local configuration
+.env
+.env.*
+secrets.h
+wifi_credentials.h
+
+# Arduino IDE
+*.elf
+*.hex
+*.bin
+*.o
+*.d
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
