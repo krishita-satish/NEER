@@ -1,1 +1,683 @@
+# NEER
+## DESIGN AND DEVELOPMENT OF A FLOATING WATER WASTE COLLECTION ROBOT
 
+**Project Domain:** Robotics, Embedded Systems and Environmental Sustainability
+
+**Project Name:** NEER
+
+**Project Type:** Hardware and Software Integrated Robotics Prototype
+
+**Institution:** [Insert Institution Name]
+
+**Department:** [Insert Department]
+
+**Academic Year:** [Insert Academic Year]
+
+**Project Team:** [Insert Team Members]
+
+**Project Guide:** [Insert Guide Name]
+
+---
+
+# ABSTRACT
+
+The accumulation of floating solid waste in water bodies is an environmental concern that affects aquatic ecosystems, water quality and the cleanliness of natural and artificial water environments. Conventional waste collection methods often require manual intervention and may be difficult to perform continuously in certain locations.
+
+This project presents NEER, a low-cost floating water waste collection robot designed to retrieve floating solid waste from the surface of water bodies. The system integrates a buoyant mechanical structure, motor-driven propulsion, wireless control and a rotating mesh-based waste collection mechanism.
+
+An ESP32 microcontroller serves as the central processing unit. Wireless communication is implemented through Wi-Fi using an HTTP-based web server, allowing an operator to issue movement commands remotely. Geared DC motors provide propulsion, while a relay-controlled collection mechanism operates the motor responsible for the mechanical waste retrieval assembly.
+
+The robot incorporates a lightweight supporting structure, floating materials and a dedicated waste collection compartment. The design aims to demonstrate the feasibility of combining affordable embedded electronics and mechanical engineering to develop a compact water surface cleaning platform.
+
+The prototype is evaluated through flotation, stability, wireless communication, propulsion and waste collection tests. The project also identifies possible improvements, including autonomous navigation, obstacle detection, sensor integration and enhanced collection efficiency.
+
+**Keywords:** Floating Robot, Water Waste Collection, ESP32, Robotics, Wi-Fi Control, Conveyor Mechanism, Environmental Sustainability.
+
+---
+
+# CHAPTER 1: INTRODUCTION
+
+## 1.1 Background
+
+Water bodies are important environmental resources that support aquatic ecosystems, human activities and biodiversity. However, the accumulation of floating solid waste has become a persistent problem in many water environments.
+
+Plastic wrappers, packaging materials, bottles, leaves and other floating debris can accumulate on water surfaces and affect the cleanliness and ecological condition of these environments.
+
+Regular removal of such waste is necessary. However, manual collection can be repetitive, labour-intensive and difficult to carry out continuously.
+
+Advances in embedded systems, robotics and wireless communication provide opportunities to develop compact robotic systems that can assist in environmental maintenance.
+
+NEER is developed around this concept. It combines a floating platform with motor-driven navigation and a mechanical waste collection mechanism.
+
+## 1.2 Problem Statement
+
+The conventional collection of floating waste requires manual effort and may involve considerable time and labour.
+
+Small water bodies and restricted water environments may not justify the use of large cleaning equipment. There is therefore a need to explore affordable, compact and accessible alternatives.
+
+The project addresses this problem through the development of a floating robotic platform that can be remotely controlled and equipped with a mechanical system for collecting floating debris.
+
+## 1.3 Aim
+
+To design and develop a low-cost floating robotic system capable of navigating the surface of water and collecting floating solid waste through a motor-driven mechanical mechanism.
+
+## 1.4 Objectives
+
+1. Develop a lightweight floating platform.
+2. Integrate a motor-driven propulsion system.
+3. Implement wireless control through an ESP32 microcontroller.
+4. Develop a mechanical mechanism for floating waste collection.
+5. Provide a dedicated compartment for storing collected waste.
+6. Integrate the electronic and mechanical subsystems.
+7. Evaluate the prototype through controlled experiments.
+8. Identify improvements for future development.
+
+## 1.5 Scope
+
+The current project focuses on a prototype for floating surface waste collection.
+
+The scope includes:
+- Floating structure fabrication.
+- Motor-driven propulsion.
+- ESP32-based wireless control.
+- Mechanical waste collection.
+- Waste storage.
+- Basic system integration and testing.
+
+The current implementation does not establish autonomous navigation, automatic waste recognition or underwater waste collection.
+
+## 1.6 Significance
+
+The project demonstrates the application of robotics and embedded electronics to an environmental problem.
+
+It provides an opportunity to explore how low-cost hardware, mechanical design and wireless control can be integrated into a functional engineering prototype.
+
+---
+
+# CHAPTER 2: EXISTING APPROACHES AND PROPOSED SYSTEM
+
+## 2.1 Existing Waste Collection Approaches
+
+Floating waste is commonly removed using manual collection, nets, boats and specialised mechanical cleaning equipment.
+
+Manual collection is straightforward but requires continuous human effort.
+
+Net-based collection can be effective in suitable environments but generally depends on manual operation.
+
+Large mechanical cleaning systems can handle larger areas but may require higher costs, specialised infrastructure and maintenance.
+
+## 2.2 Limitations of Conventional Approaches
+
+- Dependence on manual labour.
+- Repetitive cleaning requirements.
+- Difficulty accessing certain locations.
+- Limited suitability of large equipment for smaller water bodies.
+- Requirement for regular monitoring and maintenance.
+
+## 2.3 Proposed System
+
+NEER proposes a compact floating robotic platform that integrates remote navigation with mechanical surface waste collection.
+
+The system uses:
+- ESP32 microcontroller.
+- Wi-Fi-based communication.
+- Geared DC propulsion motors.
+- Motor driver circuitry.
+- Relay-controlled collection mechanism.
+- Rotating mesh assembly.
+- Waste collection tray.
+- Floating structural platform.
+
+## 2.4 Advantages of the Proposed Design
+
+- Compact prototype architecture.
+- Wireless remote operation.
+- Mechanically driven waste collection.
+- Use of accessible hardware components.
+- Modular opportunities for improvement.
+- Educational application of embedded systems and robotics.
+
+The actual environmental effectiveness and operating advantages must be established through testing.
+
+---
+
+# CHAPTER 3: SYSTEM ARCHITECTURE
+
+## 3.1 Overall Architecture
+
+The NEER system is divided into the following functional blocks:
+
+1. User control interface.
+2. Wireless communication.
+3. ESP32 controller.
+4. Motor control circuit.
+5. Relay switching circuit.
+6. Propulsion subsystem.
+7. Waste collection subsystem.
+8. Floating mechanical structure.
+9. Waste storage compartment.
+
+## 3.2 System Flow
+
+User / Operator
+↓
+Wi-Fi Communication
+↓
+ESP32 Microcontroller
+↓
+Command Processing
+↓
+Motor Driver and Relay
+↓
+Propulsion Motors and Collection Motor
+↓
+Navigation and Waste Collection
+↓
+Collection Tray
+
+## 3.3 Controller
+
+The ESP32 is used as the main controller because it provides integrated Wi-Fi connectivity, GPIO functionality and support for Arduino-based development.
+
+It processes incoming control requests and generates the required output signals for the connected electrical components.
+
+## 3.4 Communication
+
+The current implementation uses Wi-Fi and an HTTP web server.
+
+The ESP32 runs a server on port 80 and receives requests from the connected control device.
+
+## 3.5 Control Operations
+
+The intended operations include:
+- Forward.
+- Reverse.
+- Left.
+- Right.
+- Stop.
+- Collection mechanism ON.
+- Collection mechanism OFF.
+
+---
+
+# CHAPTER 4: HARDWARE DESIGN
+
+## 4.1 Hardware Overview
+
+The hardware consists of the microcontroller, motor control circuitry, motors, power supply, floating structure and mechanical waste collection assembly.
+
+## 4.2 ESP32 Development Board
+
+The ESP32 serves as the central processing unit.
+
+It manages wireless communication and controls the GPIO outputs connected to the motor driver and relay.
+
+## 4.3 Motor Driver
+
+The motor driver interfaces between the controller and the propulsion motors.
+
+It allows the ESP32 to control motor direction without supplying motor current directly through its GPIO pins.
+
+The exact driver model and electrical ratings must be included after verifying the assembled circuit.
+
+## 4.4 Relay Module
+
+The relay module provides electrical switching for the collection mechanism.
+
+The ESP32 controls the relay through its assigned GPIO output.
+
+## 4.5 DC Geared Motors
+
+Geared DC motors provide mechanical propulsion.
+
+Their selection should account for voltage, torque, speed, current consumption and operating conditions.
+
+## 4.6 Battery
+
+The rechargeable battery supplies electrical power to the system.
+
+Its voltage, capacity, discharge capability and configuration must be selected according to the electrical requirements of the motors and controller.
+
+## 4.7 Structural Materials
+
+Foam board, PVC pipes, PVC connectors and buoyant materials are used to construct the supporting platform.
+
+## 4.8 Collection Materials
+
+Mesh fabric, rollers, shafts and the waste collection tray form the mechanical waste retrieval assembly.
+
+## 4.9 Component Specification Table
+
+| Component | Model | Quantity | Rating |
+|---|---|---|---|
+| ESP32 | To be recorded | To be recorded | To be recorded |
+| Motor driver | To be verified | To be recorded | To be recorded |
+| Relay | To be recorded | To be recorded | To be recorded |
+| Propulsion motors | To be recorded | To be recorded | To be recorded |
+| Collection motor | To be recorded | To be recorded | To be recorded |
+| Battery | To be recorded | To be recorded | To be recorded |
+| Voltage regulator | To be recorded | To be recorded | To be recorded |
+
+---
+
+# CHAPTER 5: SOFTWARE AND FIRMWARE DEVELOPMENT
+
+## 5.1 Development Environment
+
+The firmware is developed using Arduino IDE and Arduino C/C++.
+
+## 5.2 Software Libraries
+
+The current source code uses:
+
+- WiFi.h
+- WebServer.h
+
+## 5.3 GPIO Configuration
+
+| ESP32 GPIO | Function |
+|---|---|
+| 26 | Left motor input A |
+| 27 | Left motor input B |
+| 14 | Right motor input A |
+| 12 | Right motor input B |
+| 25 | Relay control |
+
+## 5.4 Firmware Operation
+
+The firmware begins by initialising the GPIO pins and establishing the Wi-Fi connection.
+
+Once connected, the ESP32 starts its HTTP web server.
+
+The server listens for incoming requests and processes the received movement commands.
+
+Depending on the request, the controller changes the digital outputs connected to the motor driver or relay.
+
+## 5.5 Directional Control
+
+The propulsion motors are independently controlled.
+
+The combination of motor direction signals determines the movement of the robot.
+
+## 5.6 Collection Control
+
+The relay output is used to switch the collection motor circuit.
+
+## 5.7 Software Limitations
+
+The present implementation provides wireless remote control. Advanced features such as autonomous navigation, sensor-based obstacle avoidance and automatic waste detection are not established in the current firmware.
+
+---
+
+# CHAPTER 6: MECHANICAL DESIGN
+
+## 6.1 Introduction
+
+The mechanical design is responsible for providing buoyancy, supporting the electronic systems and enabling waste collection.
+
+The design combines a floating body, structural frame, propulsion arrangement, rotating collection assembly and storage compartment.
+
+## 6.2 Floating Structure
+
+The floating structure supports the overall robot.
+
+Foam board, PVC components and buoyant materials are used to construct the platform.
+
+The structure must provide adequate displacement and stability.
+
+## 6.3 Frame Construction
+
+The frame supports the mechanical and electrical assemblies.
+
+It provides mounting points for the motors, collection mechanism and electronics enclosure.
+
+## 6.4 Propulsion Mechanism
+
+The propulsion motors provide movement across the water surface.
+
+Independent motor control enables directional changes.
+
+## 6.5 Waste Collection Mechanism
+
+A motor-driven rotating mesh assembly is used to retrieve floating waste.
+
+The rotating mechanism interacts with the waste and transfers suitable debris towards the collection compartment.
+
+## 6.6 Collection Tray
+
+The tray provides temporary storage for retrieved debris.
+
+It should be accessible for unloading and cleaning.
+
+## 6.7 Mechanical Design Requirements
+
+- Adequate buoyancy.
+- Stable weight distribution.
+- Secure motor mounting.
+- Smooth conveyor rotation.
+- Appropriate mesh tension.
+- Suitable waste transfer arrangement.
+- Protection of electronic components.
+- Easy maintenance.
+
+---
+
+# CHAPTER 7: POWER SUPPLY AND ELECTRICAL DESIGN
+
+## 7.1 Power Supply
+
+The system uses a rechargeable lithium-ion battery.
+
+The power supply must accommodate the controller, propulsion motors and collection motor.
+
+## 7.2 Voltage Regulation
+
+Voltage regulation is required wherever the battery voltage differs from the operating voltage of an electronic component.
+
+## 7.3 Current Requirements
+
+The total electrical requirement depends on the simultaneous operation of the motors, ESP32 and relay.
+
+Motor startup and stall currents must also be considered.
+
+## 7.4 Electrical Safety
+
+The design should include suitable motor drivers, correctly rated switching components, protected connections and adequate separation between water-exposed mechanical components and electronics.
+
+---
+
+# CHAPTER 8: WORKING PRINCIPLE
+
+NEER operates through a sequence of power activation, wireless communication, navigation and mechanical waste collection.
+
+Initially, the battery supplies power to the system.
+
+The ESP32 starts and establishes the Wi-Fi control interface.
+
+The operator connects to the control network and sends movement commands.
+
+The ESP32 receives these commands and changes the motor control outputs.
+
+The propulsion motors move the robot across the water surface.
+
+When the robot reaches an area containing floating debris, the collection mechanism can be activated.
+
+The rotating mesh assembly interacts with the floating waste and transfers the retrieved material towards the collection tray.
+
+The waste remains in the tray until it is manually removed.
+
+The operator can stop the robot through the control interface.
+
+---
+
+# CHAPTER 9: PROTOTYPE DEVELOPMENT
+
+## 9.1 Development Methodology
+
+The prototype was developed through the following stages:
+
+1. Identification of the environmental problem.
+2. Conceptualisation of the robotic system.
+3. Selection of electronic and mechanical components.
+4. Construction of the floating structure.
+5. Assembly of the propulsion mechanism.
+6. Fabrication of the mesh collection mechanism.
+7. Integration of electronic components.
+8. ESP32 firmware development.
+9. System integration.
+10. Testing and evaluation.
+
+## 9.2 Mechanical Assembly
+
+The floating platform and supporting frame are assembled first.
+
+The propulsion motors and waste collection mechanism are then mounted.
+
+The electronics are installed in a protected enclosure and connected to the relevant circuits.
+
+## 9.3 Software Integration
+
+The ESP32 firmware is uploaded and tested with the connected hardware.
+
+Individual motor functions and relay operation should be checked before testing the complete system.
+
+## 9.4 Final Prototype
+
+[Insert labelled photographs of the complete NEER prototype.]
+
+---
+
+# CHAPTER 10: TESTING AND METHODOLOGY
+
+## 10.1 Objective
+
+The objective of testing is to evaluate the functional performance, stability and reliability of the prototype.
+
+## 10.2 Flotation Test
+
+The robot is placed in a controlled water environment to verify that the floating structure supports its weight.
+
+Observations include freeboard, tilting and water exposure.
+
+## 10.3 Stability Test
+
+The robot is observed under different load conditions to identify changes in balance and stability.
+
+## 10.4 Wireless Communication Test
+
+The ESP32 is connected to the control device and tested for command reception and response.
+
+## 10.5 Propulsion Test
+
+The forward, reverse, left, right and stop operations are individually evaluated.
+
+## 10.6 Collection Mechanism Test
+
+The collection mechanism is operated using suitable floating test materials.
+
+The ability of the mechanism to retrieve and transfer debris is observed.
+
+## 10.7 Endurance Test
+
+The operating duration is measured under defined test conditions.
+
+## 10.8 Testing Results
+
+Actual observations and measurements must be inserted in the following table.
+
+| Test | Expected observation | Actual result |
+|---|---|---|
+| Flotation | Robot remains afloat | To be recorded |
+| Stability | Acceptable balance | To be recorded |
+| Wi-Fi | Commands received | To be recorded |
+| Forward | Moves forward | To be recorded |
+| Reverse | Moves backwards | To be recorded |
+| Left | Turns left | To be recorded |
+| Right | Turns right | To be recorded |
+| Stop | Motors stop | To be recorded |
+| Conveyor | Mechanism rotates | To be recorded |
+| Collection | Debris retrieved | To be recorded |
+| Endurance | Stable operation | To be recorded |
+
+---
+
+# CHAPTER 11: PERFORMANCE ANALYSIS
+
+## 11.1 Buoyancy
+
+The robot's buoyancy is evaluated based on its total mass and the volume of water displaced.
+
+## 11.2 Operating Speed
+
+The average speed can be calculated using:
+
+\[
+v=\frac{d}{t}
+\]
+
+Where distance and travel time are experimentally measured.
+
+## 11.3 Battery Runtime
+
+The approximate battery runtime is:
+
+\[
+T=\frac{C}{I}
+\]
+
+Where battery capacity and average current consumption are measured.
+
+## 11.4 Collection Efficiency
+
+The collection efficiency is calculated using:
+
+\[
+\eta=\frac{M_C}{M_I}\times100
+\]
+
+Where the initial and collected waste masses are measured under controlled conditions.
+
+## 11.5 Performance Discussion
+
+The performance analysis should discuss actual experimental results, identify variations and explain the factors affecting system operation.
+
+---
+
+# CHAPTER 12: CHALLENGES FACED
+
+Potential engineering challenges to document, where actually encountered, include:
+
+- Maintaining sufficient buoyancy.
+- Balancing the robot's weight.
+- Preventing water exposure to electronics.
+- Integrating the motor driver and propulsion motors.
+- Maintaining conveyor alignment.
+- Ensuring effective waste transfer.
+- Managing battery power requirements.
+- Establishing reliable Wi-Fi communication.
+- Preventing mechanical interference.
+
+The final report should describe the actual challenges faced by the team and the solutions implemented.
+
+---
+
+# CHAPTER 13: LIMITATIONS AND FUTURE SCOPE
+
+## 13.1 Current Limitations
+
+The current prototype is remotely operated using Wi-Fi.
+
+Autonomous navigation, obstacle detection and automatic waste recognition are not established features.
+
+The collection mechanism requires further experimental evaluation to determine its performance with different waste types.
+
+Long-term waterproofing, payload capacity and battery endurance also require validation.
+
+## 13.2 Future Scope
+
+Possible future improvements include:
+
+1. Autonomous navigation.
+2. Obstacle detection and avoidance.
+3. Camera-based waste detection.
+4. GPS-based positioning.
+5. Water-quality monitoring.
+6. Battery monitoring.
+7. Improved conveyor design.
+8. Increased waste storage capacity.
+9. Solar-assisted charging.
+10. IoT-based monitoring and data logging.
+
+---
+
+# CHAPTER 14: COST ESTIMATION
+
+The final cost estimation should be prepared using actual purchase records.
+
+| S. No. | Component | Quantity | Unit Cost (₹) | Total Cost (₹) |
+|---|---|---:|---:|---:|
+| 1 | ESP32 | To be filled | To be filled | To be filled |
+| 2 | Motor driver | To be filled | To be filled | To be filled |
+| 3 | Relay module | To be filled | To be filled | To be filled |
+| 4 | Geared DC motors | To be filled | To be filled | To be filled |
+| 5 | Battery | To be filled | To be filled | To be filled |
+| 6 | Foam board | To be filled | To be filled | To be filled |
+| 7 | PVC materials | To be filled | To be filled | To be filled |
+| 8 | Mesh fabric | To be filled | To be filled | To be filled |
+| 9 | Rollers and shafts | To be filled | To be filled | To be filled |
+| 10 | Collection tray | To be filled | To be filled | To be filled |
+| 11 | Miscellaneous | To be filled | To be filled | To be filled |
+| | **Grand Total** | | | **To be calculated** |
+
+---
+
+# CHAPTER 15: ENVIRONMENTAL AND SOCIAL IMPACT
+
+NEER explores the use of affordable robotic technology for assisting in the removal of floating solid waste.
+
+Potential benefits include reducing repetitive manual collection tasks, demonstrating accessible environmental technology and encouraging further development of small-scale robotic cleaning systems.
+
+However, the robot does not treat dissolved pollutants, sewage or chemical contamination. Its current scope is limited to suitable floating solid waste.
+
+Responsible use also requires proper disposal and segregation of collected waste.
+
+---
+
+# CHAPTER 16: CONCLUSION
+
+NEER presents the design and development of a floating water waste collection robot integrating embedded electronics, wireless communication and mechanical engineering.
+
+The system uses an ESP32 microcontroller for remote control, geared DC motors for propulsion and a motor-driven mesh-based assembly for floating waste collection.
+
+The floating platform provides structural support for the electronics and mechanical components, while a dedicated tray provides temporary storage for retrieved waste.
+
+The project demonstrates the potential of integrating accessible robotic technologies to explore practical solutions for environmental challenges.
+
+Further development can improve the system through autonomous navigation, obstacle detection, enhanced collection mechanisms and environmental monitoring.
+
+The prototype provides a foundation for continued experimentation and the development of more advanced floating waste collection systems.
+
+---
+
+# REFERENCES
+
+[Insert verified references for:
+
+1. ESP32 technical documentation.
+2. Arduino ESP32 documentation.
+3. Motor driver datasheet.
+4. Relay module datasheet.
+5. Selected DC motor specifications.
+6. Battery technical documentation.
+7. Archimedes' principle and buoyancy.
+8. Research papers on floating waste collection robots.
+9. Research papers on aquatic surface cleaning systems.
+10. Relevant environmental pollution reports.]
+
+---
+
+# APPENDICES
+
+## Appendix A – ESP32 Source Code
+
+Insert the complete, tested Arduino firmware.
+
+## Appendix B – Circuit Diagram
+
+Insert the labelled electrical connection diagram.
+
+## Appendix C – Mechanical Drawings
+
+Insert top, front and side views of the prototype.
+
+## Appendix D – Prototype Photographs
+
+Insert photographs showing fabrication, assembly and testing.
+
+## Appendix E – Test Data
+
+Insert the original observations, measurements and calculations.
+
+## Appendix F – Bill of Materials
+
+Insert the final component list with specifications, quantities and costs.
