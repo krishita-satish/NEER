@@ -1,324 +1,311 @@
-# NEER
-### A Compact Floating Robotic System for Water-Surface Waste Collection
+# NEER – Floating Water Waste Collection Robot
 
-**Clean Water. Greener Tomorrow.**
+**A Low-Cost ESP32-Based Robotic System for Floating Waste Collection**
 
-![Project Status](https://img.shields.io/badge/Status-Design%20%26%20Development-orange)
-![Controller](https://img.shields.io/badge/Controller-ESP32-blue)
-![Communication](https://img.shields.io/badge/Communication-Bluetooth%20LE-blue)
-![Domain](https://img.shields.io/badge/Domain-Embedded%20Robotics-green)
-![Budget](https://img.shields.io/badge/Target%20Budget-₹3000-brightgreen)
+![Project](https://img.shields.io/badge/Project-NEER-087E8B)
+![Platform](https://img.shields.io/badge/Platform-ESP32-blue)
+![Language](https://img.shields.io/badge/Language-Arduino%20C%2B%2B-orange)
+![Domain](https://img.shields.io/badge/Domain-Robotics%20%7C%20Sustainability-green)
+![Status](https://img.shields.io/badge/Status-Prototype-yellow)
 
 ---
 
-## 1. Overview
+## 1. Introduction
 
-NEER is a compact, low-cost floating robotic system designed to collect lightweight solid waste accumulating on the surface of small, contained water bodies.
+NEER is a low-cost floating robotic system developed to address the problem of floating solid waste in water bodies. The robot is designed to navigate across the water surface and collect floating debris through a motor-driven mechanical collection mechanism.
 
-The system integrates a twin-hull floating platform, differential propulsion, a motorised rotating mesh scoop and an onboard removable waste collection basket.
+The system integrates embedded electronics, wireless control, mechanical propulsion and a waste collection assembly into a compact floating platform.
 
-Powered by an ESP32-based embedded control system, NEER uses Bluetooth Low Energy (BLE) for wireless navigation and independent operation of its waste collection mechanism.
+An ESP32 microcontroller serves as the central controller, enabling wireless operation through a Wi-Fi-based web interface. Geared DC motors facilitate navigation, while a rotating mesh-based collection mechanism is intended to retrieve floating waste and transfer it into a dedicated collection compartment.
 
-Unlike conventional floating platforms that only provide mobility, NEER combines navigation with an active mechanical collection system that captures, lifts and stores floating debris.
-
-The project explores the practical application of embedded systems, robotics and mechanical design to an environmental maintenance problem.
+NEER demonstrates how accessible robotics and embedded technologies can be applied to environmental conservation and water surface cleaning.
 
 ## 2. Problem Statement
 
-Floating waste such as plastic wrappers, bottle caps, leaves and lightweight packaging frequently accumulates on the surfaces of ponds, swimming pools and other contained water bodies.
+Water bodies such as ponds, lakes, reservoirs and drainage channels frequently accumulate floating waste, particularly plastic packaging, wrappers, leaves and other lightweight debris.
 
-Conventional manual cleaning requires repeated human effort and may be inconvenient when waste is distributed across different areas of a water surface.
+Manual waste collection can be repetitive, labour-intensive and difficult to perform continuously, particularly in areas that are difficult to access.
 
-NEER aims to address this problem through an affordable, reusable and remotely operated robotic system capable of navigating a contained water surface and mechanically collecting floating solid waste.
+There is a need for affordable, compact and mechanically simple systems that can assist in collecting floating waste without requiring large-scale cleaning equipment.
+
+NEER aims to address this problem by developing a floating robotic platform that combines remote navigation with a mechanical waste collection mechanism.
 
 ## 3. Project Objectives
 
-- Design a compact and stable floating robotic platform.
-- Implement wireless navigation using an ESP32 controller.
-- Develop a differential propulsion system using two independently controlled motors.
-- Design a rotating mesh-based mechanism for collecting floating debris.
-- Transfer collected waste into an onboard removable storage basket.
-- Implement independent control of navigation and waste collection.
-- Develop protected, organised and maintainable electronics.
-- Keep the design affordable, modular and suitable for repeated operation.
+- Design and develop a lightweight floating robotic platform.
+- Implement motor-driven navigation using an ESP32 microcontroller.
+- Enable wireless control through a Wi-Fi-based interface.
+- Develop a mechanical mechanism for collecting floating solid waste.
+- Integrate a collection compartment for storing retrieved waste.
+- Use affordable and accessible components to keep the prototype economical.
+- Demonstrate the application of robotics and embedded systems in environmental sustainability.
 
-## 4. System Architecture
+## 4. System Overview
 
-NEER consists of six primary subsystems:
+NEER consists of four primary subsystems:
 
-| Subsystem | Function |
-|---|---|
-| Floating Platform | Provides buoyancy and structural support |
-| Propulsion System | Enables forward, reverse and directional movement |
-| Collection Assembly | Captures and lifts floating debris |
-| Waste Storage | Retains collected debris in a removable basket |
-| Embedded Controller | Processes commands and controls motor operation |
-| Power System | Supplies regulated power to electronic and mechanical components |
-
-### 4.1 Floating Platform
-
-A twin-hull catamaran-style configuration provides buoyancy and lateral stability.
-
-The two sealed hulls support a central deck containing the electronics enclosure, battery and mechanical assemblies.
+### 4.1 Floating Structure
+The robot uses a lightweight supporting frame and buoyant materials to remain afloat. The structure supports the electronics, propulsion system and waste collection assembly.
 
 ### 4.2 Propulsion System
-
-Two independently controlled rear propulsion motors provide differential steering.
-
-| Motor operation | Movement |
-|---|---|
-| Both forward | Forward |
-| Both reverse | Reverse |
-| Left slower than right | Left turn |
-| Right slower than left | Right turn |
-| Both stopped | Stop |
+Geared DC motors provide movement and directional control. The robot uses differential motor control to achieve forward, backward and turning movements.
 
 ### 4.3 Waste Collection Mechanism
+A rotating mesh-based mechanical assembly is designed to collect floating debris from the water surface and move it towards the collection compartment.
 
-The front collection assembly consists of:
-
-- V-shaped debris-guiding panels.
-- A rotating mesh scoop with four proposed collection pockets.
-- A geared DC motor.
-- A shaft and supporting bearings.
-- A waste-transfer opening.
-
-The guide panels direct floating debris towards the rotating scoop. The scoop lifts the debris above the waterline and transfers it into the storage basket while allowing water to drain through the mesh.
-
-### 4.4 Waste Storage
-
-A removable mesh basket retains collected debris and allows excess water to drain.
-
-The basket is designed for convenient removal, emptying and reinstallation.
+### 4.4 Control System
+An ESP32 microcontroller manages the motor control operations and provides a Wi-Fi-based interface for remotely operating the robot.
 
 ## 5. Working Principle
 
-1. **Initialisation:** The operator switches on the system. The ESP32 initialises its control interfaces and keeps all motor outputs disabled.
-2. **Wireless Connection:** A compatible mobile device connects to the ESP32 through Bluetooth Low Energy.
-3. **Navigation:** Movement commands are processed by the ESP32, which controls the two propulsion motors through a motor driver.
-4. **Collection:** The operator activates the collection mechanism independently of propulsion.
-5. **Waste Transfer:** The rotating mesh scoop lifts floating debris and transfers it into the onboard basket.
-6. **Safety:** A communication timeout stops propulsion if valid movement commands are no longer received.
+The intended operation of NEER follows these stages:
 
-## 6. Proposed Technical Specifications
+1. **Power activation:** The rechargeable battery supplies power to the electronic and mechanical systems.
+2. **Wireless connection:** The ESP32 establishes the Wi-Fi control interface.
+3. **Navigation:** The operator sends movement commands through the control interface.
+4. **Motor operation:** The motor control circuit drives the propulsion motors according to the received commands.
+5. **Waste collection:** The collection mechanism is operated to retrieve floating waste from the water surface.
+6. **Waste storage:** Retrieved waste is transferred into the collection compartment.
+7. **Stopping and unloading:** The robot is stopped and the collection compartment can be emptied.
 
-The following values represent the initial design targets. They are subject to component selection, fabrication constraints and physical validation.
+## 6. Hardware Components
 
-| Parameter | Proposed Specification |
+The following components form the project's identified hardware inventory. Final quantities and exact models should be documented according to the assembled prototype.
+
+| Component | Function |
 |---|---|
-| Project Name | NEER |
-| Controller | ESP32 Development Board |
-| Communication | Bluetooth Low Energy |
-| Floating Configuration | Twin Hull / Catamaran |
-| Propulsion | Dual Propeller |
-| Steering | Differential Propulsion |
-| Collection Mechanism | Rotating Mesh Scoop |
-| Waste Storage | Removable Mesh Basket |
-| Target Length | 400 mm |
-| Target Width | 280 mm |
-| Target Height | 160 mm |
-| Individual Hull | 350 × 70 × 80 mm |
-| Collection Drum | 150 mm width × 90 mm diameter |
-| Power Source | Protected Rechargeable Battery |
-| Target Budget | ₹3,000 |
+| ESP32 Development Board | Main microcontroller |
+| DC Geared Motors | Propulsion |
+| Motor Driver | Controls propulsion motor direction |
+| Relay Module | Electrical switching for the collection mechanism |
+| Conveyor Motor | Drives the collection mechanism |
+| Lithium-ion Battery | Main power source |
+| Voltage Regulator | Voltage regulation |
+| Foam Board | Structural support |
+| PVC Pipes and Connectors | Mechanical framework |
+| Plastic Floats | Buoyancy |
+| Mesh Fabric | Waste collection surface |
+| Rollers and Shafts | Mechanical rotation |
+| Waste Collection Tray | Stores collected debris |
+| Waterproof Enclosure | Protects electronics |
+| Connecting Wires | Electrical connections |
+| Switch | Power control |
+| Fasteners and Cable Ties | Mechanical assembly |
 
-**Note:** The dimensions are preliminary design targets, not approved production dimensions. Final drawings must be updated to match selected components and validated mechanical clearances.
+## 7. Software and Technologies
 
-## 7. Hardware Architecture
-
-The proposed electronics architecture includes:
-
-- ESP32 development board.
-- Dual-channel propulsion motor driver.
-- Separate collection motor driver.
-- Two propulsion motors.
-- One geared collection motor.
-- Rechargeable protected battery pack.
-- DC-DC voltage regulator.
-- Main power switch.
-- Fuse and power distribution connections.
-
-The ESP32 coordinates the motor systems using dedicated control signals.
-
-The propulsion and collection mechanisms operate independently.
-
-## 8. Software Architecture
-
-The embedded firmware is responsible for:
-
-- GPIO initialisation.
-- BLE communication.
-- Command reception and processing.
-- Differential motor control.
-- PWM-based speed regulation where supported.
-- Independent collection motor operation.
-- Communication-loss detection.
-- Safe motor shutdown.
-
-### Proposed Command Mapping
-
-| Command | Operation |
+| Technology | Application |
 |---|---|
-| F | Forward |
-| B | Reverse |
-| L | Left |
-| R | Right |
-| S | Stop propulsion |
-| C | Start collection |
-| X | Stop collection |
+| ESP32 | Embedded control |
+| Arduino IDE | Firmware development |
+| Arduino C/C++ | Programming language |
+| WiFi.h | Wireless connectivity |
+| WebServer.h | HTTP web server |
+| GPIO Control | Motor and relay switching |
+| HTTP | Wireless command communication |
 
-## 9. Safety and Reliability
+## 8. Firmware and Control
 
-The design incorporates the following safety requirements:
+The firmware is developed using Arduino C/C++ and runs on the ESP32 development board.
 
-- Protected electronics enclosure.
-- Appropriate battery protection.
-- Correctly rated fuse and motor drivers.
-- Insulated and secured electrical connections.
-- Propeller guards.
-- Protected rotating collection mechanism.
-- Communication-loss safety stop.
-- Hull leakage and buoyancy checks.
-- Waterproofing validation before operation.
+The current implementation uses Wi-Fi and an HTTP web server to receive remote control commands.
 
-The system is intended for controlled testing in small water bodies.
+### Implemented control operations
 
-## 10. Development Roadmap
+- Forward
+- Backward
+- Left
+- Right
+- Stop
+- Collection relay ON
+- Collection relay OFF
 
-| Phase | Development Activity | Status |
-|---|---|---|
-| 01 | Problem identification and research | In progress |
-| 02 | System architecture and product design | Proposed |
-| 03 | Component selection and budgeting | Pending |
-| 04 | Mechanical fabrication | Pending |
-| 05 | Electronics integration | Pending |
-| 06 | ESP32 firmware development | Pending |
-| 07 | Wireless control implementation | Pending |
-| 08 | Mechanical and electrical integration | Pending |
-| 09 | Water testing and validation | Pending |
-| 10 | Performance evaluation and documentation | Pending |
+### Current GPIO configuration
 
-## 11. Testing and Validation
+| ESP32 GPIO | Connected function |
+|---|---|
+| GPIO 26 | Left motor input A |
+| GPIO 27 | Left motor input B |
+| GPIO 14 | Right motor input A |
+| GPIO 12 | Right motor input B |
+| GPIO 25 | Relay control |
 
-The completed system will be evaluated through:
+The exact motor-driver wiring, relay polarity and conveyor motor connections must be verified against the final physical circuit.
 
-- Buoyancy and stability testing.
-- Forward and reverse propulsion testing.
-- Differential steering testing.
-- Collection mechanism performance testing.
-- Waste transfer and basket drainage testing.
-- Bluetooth communication testing.
-- Communication-loss safety testing.
-- Continuous operation and leakage testing.
+## 9. System Architecture
 
-Performance measurements and test results will be documented as they become available.
+```text
+          USER / OPERATOR
+                 |
+                 v
+        Wi-Fi CONTROL INTERFACE
+                 |
+                 v
+          ESP32 CONTROLLER
+                 |
+          +------+------+
+          |             |
+          v             v
+    MOTOR CONTROL   RELAY CONTROL
+          |             |
+          v             v
+    PROPULSION      COLLECTION
+      MOTORS         MOTOR
+          |             |
+          v             v
+    NAVIGATION     MESH CONVEYOR
+                        |
+                        v
+                 WASTE COLLECTION
+                      TRAY
+```
 
-## 12. Applications
+## 10. Mechanical Design
 
-Potential applications include:
+The mechanical structure is designed around a floating platform that supports the electronic and collection systems.
 
-- Swimming pools.
-- Ornamental ponds.
-- Small artificial water bodies.
-- Accessible water storage tanks.
-- Educational and research water environments.
+The major mechanical assemblies include:
 
-NEER is not currently designed or validated for open rivers, lakes or industrial waterways.
+- Buoyant support structure.
+- Lightweight mounting frame.
+- Motor mounting arrangement.
+- Propulsion assembly.
+- Rotating mesh collection mechanism.
+- Waste storage compartment.
+- Protective enclosure for electronic components.
+
+The mechanical design must maintain sufficient buoyancy, stability and clearance between moving components and the water surface.
+
+## 11. Applications
+
+NEER is intended for potential applications such as:
+
+- Small ponds and artificial water bodies.
+- Lakes and reservoirs.
+- Campus water bodies.
+- Controlled water tanks used for testing.
+- Drainage channels with suitable operating conditions.
+- Environmental demonstration and educational projects.
+
+Its current prototype should be validated in controlled water environments before considering deployment in natural water bodies.
+
+## 12. Testing and Validation
+
+The prototype should be evaluated through the following tests:
+
+| Test | Parameter to evaluate |
+|---|---|
+| Buoyancy test | Ability to remain afloat |
+| Stability test | Tilting and load distribution |
+| Forward movement | Straight-line movement |
+| Reverse movement | Reverse propulsion |
+| Turning test | Directional control |
+| Wi-Fi test | Command communication |
+| Motor test | Motor operation and response |
+| Collection test | Ability to retrieve floating debris |
+| Storage test | Waste transfer and retention |
+| Endurance test | Operating duration |
+| Waterproofing test | Protection of electronics |
+
+Actual test results, photographs and observations should be added to the testing documentation.
 
 ## 13. Current Limitations
 
-- Designed primarily for lightweight floating solid waste.
-- Does not collect submerged debris or dissolved pollutants.
-- Navigation is remotely controlled rather than autonomous.
-- Collection efficiency depends on debris characteristics and mechanical configuration.
-- Performance and operating duration require experimental validation.
+- The current implementation relies on remote Wi-Fi control.
+- Autonomous navigation has not been implemented.
+- Automatic waste detection has not been implemented.
+- Obstacle detection and avoidance are not yet integrated.
+- Collection efficiency and operating endurance require experimental validation.
+- Water resistance and long-term durability require further testing.
+- Performance may vary depending on waste type, water conditions and payload.
 
 ## 14. Future Enhancements
 
-Potential future improvements include:
+Potential improvements include:
 
-- Autonomous navigation.
-- Obstacle detection and avoidance.
-- Battery-level monitoring.
-- Collection basket fill detection.
-- Improved debris collection capacity.
+- Autonomous navigation using GPS or suitable positioning methods.
+- Ultrasonic or other obstacle detection sensors.
+- Camera-based floating waste detection.
+- Improved collection mechanism and mesh design.
+- Water-quality monitoring sensors.
+- Battery level monitoring.
+- Improved waterproof electronics enclosure.
 - Solar-assisted charging.
-- Advanced waste detection and classification.
+- Improved stability and load distribution.
+- Live telemetry and performance monitoring.
 
-These features are outside the scope of the initial implementation.
+These are proposed enhancements and are not part of the currently established implementation.
 
-## 15. Repository Structure
+## 15. Project Significance
+
+NEER demonstrates the integration of embedded systems, mechanical design and wireless communication to address an environmental challenge.
+
+The project provides a foundation for exploring affordable robotic solutions for surface waste management and encourages the application of engineering principles towards sustainable environmental practices.
+
+## 16. Repository Structure
 
 ```text
 NEER/
-│
 ├── README.md
-├── LICENSE
-├── CONTRIBUTING.md
-│
-├── docs/
-│   ├── project-overview.md
-│   ├── problem-statement.md
-│   ├── system-architecture.md
-│   ├── working-principle.md
-│   ├── mechanical-design.md
-│   ├── electrical-design.md
-│   ├── software-design.md
-│   ├── bill-of-materials.md
-│   ├── fabrication-guide.md
-│   ├── testing-and-validation.md
-│   ├── risk-assessment.md
-│   └── development-log.md
-│
-├── hardware/
-│   ├── mechanical/
-│   │   ├── drawings/
-│   │   ├── cad-models/
-│   │   └── fabrication-files/
-│   │
-│   ├── electronics/
-│   │   ├── circuit-diagrams/
-│   │   ├── pcb-design/
-│   │   └── pinout/
-│   │
-│   └── bom/
-│       └── component-list.csv
-│
 ├── firmware/
-│   ├── src/
-│   ├── include/
-│   ├── lib/
-│   └── README.md
-│
-├── mobile-controller/
-│   ├── src/
-│   └── README.md
-│
-├── media/
-│   ├── concept-design/
-│   ├── cad-renders/
-│   ├── fabrication/
-│   ├── prototype/
-│   └── testing/
-│
-└── reports/
-    ├── design-report/
-    ├── test-reports/
-    └── final-report/
+│   └── neer_controller/
+│       └── neer_controller.ino
+├── hardware/
+│   ├── components.md
+│   ├── circuit-connections.md
+│   └── pin-configuration.md
+├── mechanical-design/
+│   ├── structure.md
+│   └── waste-collection-mechanism.md
+├── documentation/
+│   ├── project-overview.md
+│   ├── working-principle.md
+│   ├── system-architecture.md
+│   ├── methodology.md
+│   ├── testing-and-results.md
+│   └── future-enhancements.md
+├── images/
+├── report/
+└── LICENSE
 ```
 
-## 16. Project Status
+## 17. Getting Started
 
-NEER is currently in its initial design and development stage.
+### Requirements
 
-The project has an established product concept and preliminary system architecture. Component procurement, detailed mechanical drawings, fabrication, firmware implementation and experimental validation are planned development activities.
+- ESP32 Development Board
+- Arduino IDE
+- Appropriate ESP32 board package
+- USB data cable
+- Required hardware and motor driver circuits
 
-This repository will serve as the central technical record of the project's design decisions, implementation, testing and future improvements.
+### Installation
 
-## 17. Acknowledgements
+1. Clone or download this repository.
+2. Open the firmware file in Arduino IDE.
+3. Install the ESP32 board support package.
+4. Select the appropriate ESP32 board and COM port.
+5. Configure the Wi-Fi credentials using the local configuration instructions.
+6. Verify the GPIO assignments against the actual circuit.
+7. Upload the firmware.
+8. Connect to the configured Wi-Fi network and access the control interface.
 
-Developed as an embedded robotics and environmental technology project.
+**Security note:** Never publish real Wi-Fi passwords, private network credentials or other secrets in the repository. Use local configuration values or a separate untracked secrets file.
+
+## 18. Project Status
+
+NEER is a working-prototype development project. Its physical structure and Wi-Fi-based ESP32 control implementation have been developed. Further integration, testing, performance evaluation and validation of the mechanical waste collection mechanism remain important parts of the project.
+
+## 19. Contributors
+
+Developed as a collaborative robotics and environmental sustainability project.
+
+Add the names, roles and GitHub profiles of all team members here.
+
+## 20. License
+
+This project may be released under the MIT License. Add a `LICENSE` file if the team chooses to distribute the project under those terms.
 
 ---
 
-**NEER — Clean Water. Greener Tomorrow.**
+**NEER – Engineering a cleaner water surface through robotics.**
