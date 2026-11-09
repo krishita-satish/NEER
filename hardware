@@ -1,1 +1,36 @@
+# NEER – Hardware Components
 
+## Overview
+
+This document lists the hardware components used in the NEER floating water waste collection robot and explains their functions.
+
+| Component | Function | Specifications to Record |
+|---|---|---|
+| ESP32 | Main controller | Board model, operating voltage |
+| Geared DC motors | Propulsion | Rated voltage, RPM, torque |
+| Motor driver | Motor direction control | Model, voltage and current rating |
+| Relay module | Electrical switching | Channel count, coil voltage |
+| Collection motor | Drives collection assembly | Voltage, RPM, current |
+| Lithium-ion battery | Power supply | Cell configuration, capacity |
+| Voltage regulator | Voltage regulation | Input and output voltage |
+| Mesh fabric | Waste collection | Material and dimensions |
+| Rollers | Conveyor movement | Diameter and dimensions |
+| PVC pipes | Structural support | Diameter and length |
+| Floats | Buoyancy | Dimensions and quantity |
+| Collection tray | Waste storage | Dimensions and capacity |
+| Waterproof enclosure | Electronics protection | Material and dimensions |
+
+## Component Selection Considerations
+
+Components were identified based on affordability, accessibility, weight, compatibility and suitability for a small floating robotic platform.
+
+Exact specifications and quantities must be filled in using the final assembled prototype.
+
+## Electrical Safety
+
+- Verify voltage compatibility before connecting components.
+- Avoid powering motors directly from ESP32 GPIO pins.
+- Use suitable motor drivers for inductive motor loads.
+- Provide appropriate current protection.
+- Protect all electrical connections from water exposure.
+- Verify the battery configuration and charging requirements.
