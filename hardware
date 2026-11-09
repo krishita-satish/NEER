@@ -34,3 +34,36 @@ Exact specifications and quantities must be filled in using the final assembled 
 - Provide appropriate current protection.
 - Protect all electrical connections from water exposure.
 - Verify the battery configuration and charging requirements.
+
+# NEER – ESP32 Pin Configuration
+
+The current NEER firmware uses the following GPIO assignments.
+
+| GPIO | Connected Component | Function |
+|---|---|---|
+| 26 | Left motor input A | Direction control |
+| 27 | Left motor input B | Direction control |
+| 14 | Right motor input A | Direction control |
+| 12 | Right motor input B | Direction control |
+| 25 | Relay module | Collection system switching |
+
+## Communication
+
+The firmware uses:
+- WiFi.h for wireless communication.
+- WebServer.h for HTTP request handling.
+- GPIO digital outputs for motor and relay control.
+
+## Control Operations
+
+- Forward
+- Reverse
+- Left
+- Right
+- Stop
+- Collection ON
+- Collection OFF
+
+**Important:** This is the GPIO configuration from the currently shared firmware. Verify it against the final wiring before connecting the hardware.
+
+Do not expose Wi-Fi passwords or other credentials in publicly accessible source code.
