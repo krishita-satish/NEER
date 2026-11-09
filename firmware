@@ -1,1 +1,144 @@
+# NEER – Firmware Documentation
 
+## 1. Overview
+
+The NEER firmware is responsible for controlling the robot's movement and coordinating its electrical subsystems through an ESP32 microcontroller.
+
+The firmware is developed using Arduino C/C++ and provides a Wi-Fi-based remote control mechanism through an HTTP web server.
+
+The ESP32 receives commands from an external device connected to its Wi-Fi network and translates those commands into GPIO output signals for controlling the propulsion motors and collection mechanism.
+
+## 2. Development Environment
+
+| Requirement | Technology |
+|---|---|
+| Microcontroller | ESP32 |
+| Programming language | Arduino C/C++ |
+| IDE | Arduino IDE |
+| Wireless communication | Wi-Fi |
+| Communication protocol | HTTP |
+| Web server | ESP32 WebServer |
+| Wireless library | WiFi.h |
+| Server library | WebServer.h |
+
+## 3. Firmware Architecture
+
+The firmware follows this sequence:
+
+1. Initialise the ESP32.
+2. Configure the motor and relay GPIO pins.
+3. Establish the Wi-Fi connection.
+4. Start the HTTP web server.
+5. Listen for incoming HTTP requests.
+6. Identify the requested control operation.
+7. Execute the corresponding motor or relay control function.
+8. Return an HTTP response to the connected client.
+9. Continue listening for additional commands.
+
+## 4. GPIO Configuration
+
+The current shared firmware uses the following pin assignments.
+
+| GPIO | Component | Function |
+|---|---|---|
+| GPIO 26 | Left motor input A | Motor direction control |
+| GPIO 27 | Left motor input B | Motor direction control |
+| GPIO 14 | Right motor input A | Motor direction control |
+| GPIO 12 | Right motor input B | Motor direction control |
+| GPIO 25 | Relay module | Collection system switching |
+
+These assignments should be checked against the final hardware wiring.
+
+## 5. Motor Control
+
+The propulsion subsystem uses two independently controlled motor channels.
+
+The motor control logic is intended to support:
+
+- Forward movement.
+- Reverse movement.
+- Left turning.
+- Right turning.
+- Complete stopping.
+
+The ESP32 controls the direction inputs through digital GPIO outputs.
+
+Motor power must be supplied through an appropriate motor driver rather than directly through the microcontroller.
+
+## 6. Collection Mechanism Control
+
+A relay-controlled output is used to switch the collection mechanism.
+
+The relay control signal is assigned to GPIO 25 in the current shared firmware.
+
+The relay provides electrical switching between the controller and the collection motor's power circuit.
+
+The relay's active-high or active-low behaviour must be verified against the actual module.
+
+## 7. Wi-Fi Communication
+
+The firmware uses the ESP32 Wi-Fi interface to provide wireless remote control.
+
+The shared implementation uses:
+
+- `WiFi.h`
+- `WebServer.h`
+
+The ESP32 operates an HTTP web server on port 80.
+
+The operator connects a compatible device to the configured network and sends commands through the web interface or corresponding HTTP requests.
+
+## 8. Firmware Safety Considerations
+
+- Do not expose Wi-Fi credentials in public repositories.
+- Stop the propulsion motors when an invalid command is received.
+- Provide a safe stopping operation.
+- Avoid operating the collection mechanism when it is mechanically obstructed.
+- Ensure the ESP32 and motor supply circuits have suitable voltage regulation.
+- Use suitable protection against motor voltage spikes.
+- Keep the electronic controller protected from water exposure.
+
+## 9. Uploading the Firmware
+
+1. Install Arduino IDE.
+2. Install ESP32 board support.
+3. Connect the ESP32 using a USB data cable.
+4. Open `neer_controller.ino`.
+5. Configure Wi-Fi credentials locally.
+6. Select the correct ESP32 board.
+7. Select the correct COM port.
+8. Compile and verify the code.
+9. Upload the firmware.
+10. Open the Serial Monitor to inspect startup messages, if enabled in the firmware.
+
+## 10. Testing
+
+The firmware should be tested independently before full integration.
+
+Recommended checks:
+
+- ESP32 startup.
+- Wi-Fi connection.
+- HTTP server availability.
+- Forward and reverse commands.
+- Left and right commands.
+- Stop command.
+- Relay activation and deactivation.
+- Repeated command handling.
+- Behaviour after Wi-Fi disconnection.
+
+## 11. Current Implementation and Future Development
+
+The current implementation provides Wi-Fi-based remote control and GPIO-based motor and relay switching.
+
+Possible future improvements include:
+
+- PWM-based speed control.
+- Automatic stop on communication timeout.
+- Battery voltage monitoring.
+- Obstacle detection.
+- Autonomous navigation.
+- Sensor integration.
+- Real-time system telemetry.
+
+These features are proposed improvements and should not be treated as implemented until verified.
